@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "24038b14-a80a-40be-9d9d-82d04b93af4e",
+		"name": "exchange-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15992543"
+	},
+	"item": [
+		{
+			"name": "exchange-rate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/exchange-api/exchange-rate?sourceCurrency=USD&targetCurrencyList=TRY,EUR",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exchange-api",
+						"exchange-rate"
+					],
+					"query": [
+						{
+							"key": "sourceCurrency",
+							"value": "USD"
+						},
+						{
+							"key": "targetCurrencyList",
+							"value": "TRY,EUR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "exchange",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/exchange-api/exchange?sourceAmount=100&sourceCurrency=USD&targetCurrencyList=TRY,EUR",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exchange-api",
+						"exchange"
+					],
+					"query": [
+						{
+							"key": "sourceAmount",
+							"value": "100"
+						},
+						{
+							"key": "sourceCurrency",
+							"value": "USD"
+						},
+						{
+							"key": "targetCurrencyList",
+							"value": "TRY,EUR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "conversions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/exchange-api/conversions?fromDate=2022-7-28&toDate=2022-12-28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exchange-api",
+						"conversions"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2022-7-28"
+						},
+						{
+							"key": "toDate",
+							"value": "2022-12-28"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "conversionsWithTransactionId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/exchange-api/conversions?transactionId=1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exchange-api",
+						"conversions"
+					],
+					"query": [
+						{
+							"key": "transactionId",
+							"value": "1234"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
