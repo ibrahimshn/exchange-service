@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -37,7 +38,7 @@ public class ExchangeController {
     }
 
     @GetMapping("/exchange")
-    public ExchangeAmountResponse getExchangeAmount(@RequestParam @NotNull BigDecimal sourceAmount,
+    public ExchangeAmountResponse getExchangeAmount(@RequestParam @NotNull @DecimalMin("0.01") BigDecimal sourceAmount,
                                                     @RequestParam @NotBlank String sourceCurrency,
                                                     @RequestParam @Size(min = 1) List<String> targetCurrencyList) {
         return exchangeService.getCalculatedExchangeAmount(sourceAmount, sourceCurrency, targetCurrencyList);
