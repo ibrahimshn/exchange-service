@@ -11,6 +11,8 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.validation.ConstraintViolationException;
+
 @RestControllerAdvice
 @RequiredArgsConstructor
 @Slf4j
@@ -36,7 +38,13 @@ public class CommonExceptionHandler {
     }
 
     @ExceptionHandler(value = MissingServletRequestParameterException.class)
-    public <T> T handleConstraintViolationException(MissingServletRequestParameterException e) {
+    public <T> T handleMissingServletException(MissingServletRequestParameterException e) {
+        AppError apiError = createApiError(HttpStatus.BAD_REQUEST, e.getMessage());
+        return (T) new ResponseEntity<Object>(apiError, apiError.getHttpStatus());
+    }
+
+    @ExceptionHandler(value = ConstraintViolationException.class)
+    public <T> T handleConstraintViolationException(ConstraintViolationException e) {
         AppError apiError = createApiError(HttpStatus.BAD_REQUEST, e.getMessage());
         return (T) new ResponseEntity<Object>(apiError, apiError.getHttpStatus());
     }
