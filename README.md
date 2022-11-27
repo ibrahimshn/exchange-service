@@ -31,13 +31,31 @@ common services used in financial applications. Requirements are as follows:
     • H2 Database
     • Lombok
     • Swagger
+    • Docker
     
  **Additional Information:**
 
-* []()Added Global Exception Handler
+* []()Added Common Exception Handler
 * []()Unit tests for business requirements written using the TDD
 * []() Provides swagger api docs. You can reach it after successfully run the application.
 `The URL`: http://localhost:8080/swagger-ui/index.html
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Installation
+
+1. Clone the project
+   ```sh
+   git clone https://github.com/ibrahimshn/exchange-service
+   ```
+2. Execute the following docker command:
+   ```sh
+   docker build -t exchange-service . 
+   docker run -p 8080:8080 exchange-service
+   ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
